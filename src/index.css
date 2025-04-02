@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@tailwindcss: base;
+
+@layer base {
+    body{
+        @apply bg-[#000000] text-white;
+    }
+  
+}
