@@ -1,14 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { HiBell } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 const Header = () => {
+    const [isScrolled, setIsScrolled] = useState(false)
+    const Navigate = useNavigate();
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 0) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+ 
   return (
     <header
-    className="bg-[#141414]
-    fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 lg:px-10 lg:py-6">
+    className={`${ isScrolled &&    'bg-[#141414]'}
+    fixed top-0 z-50 flex w-full items-center justify-between px-4 py-4 lg:px-10 lg:py-6`}>
     <div className="flex items-center space-x-2 md:space-x-10">
-        {/* comes from  https://www.svgrepo.com/svg/354108/netflix*/}
+        
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1024 276.742"
@@ -39,7 +54,10 @@ const Header = () => {
     <div className="flex items-center space-x-4 text-sm">
         <HiBell className="h-6 w-6 cursor-pointer" />
         <AiOutlineSearch className="h-6 w-6 cursor-pointer" />
-        <img
+        <img onClick={((e)=> e.target.addEventListener('click',()=>{
+            //  console.log("WW");
+            Navigate('../Login')
+        }) )}
            
             src="./images/logo/profile.png"
             alt=""

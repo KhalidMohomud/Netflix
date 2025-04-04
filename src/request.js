@@ -1,6 +1,6 @@
 
 const API_URL = "https://api.themoviedb.org/3";
-const API_KEY = import.meta.env.REACT_APP_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 // npm  remove dotenv --save
 
 const requests = {

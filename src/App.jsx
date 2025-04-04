@@ -1,8 +1,8 @@
 
 import { BrowserRouter, Routes , Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Login from './pages/login'
-import Signup from './pages/signup'
+import LoginPage from './pages/LoginPage'
+import Signuppage from './pages/Signuppage'
 import List from './pages/list'
 import Browse from './pages/Browse'
 
@@ -15,8 +15,8 @@ function App() {
      <BrowserRouter>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/Login' element={<Login/>}/>
-            <Route path='/Signup' element={<Signup/>}/>
+            <Route path='/Login' element={<LoginPage/>}/>
+            <Route path='/Signuppage' element={<Signuppage/>}/>
             <Route path='/List' element={<List/>}/>
             <Route path='/Browse' element={<Browse/>}/>
         </Routes>
